@@ -16,7 +16,12 @@ module.exports = class OutputStylesPreprocessor {
       this.owner.getIntermediateOutputPath() ||
       options.outputPaths[this.owner.belongsToAddon() ? 'addon' : 'app'];
     let concatOptions = {
-      inputFiles: ['**/*.' + this.owner.getFileExtension()],
+      inputFiles: [
+        '**/' +
+          this.owner.getFileNamePattern() +
+          '.' +
+          this.owner.getFileExtension(),
+      ],
       outputFile: outputFile,
       allowNone: true,
       sourceMapConfig: this.sourceMapConfig(),

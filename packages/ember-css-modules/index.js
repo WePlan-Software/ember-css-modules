@@ -156,6 +156,12 @@ module.exports = {
     );
   },
 
+  getFileNamePattern() {
+    return (
+      (this.cssModulesOptions && this.cssModulesOptions.fileNamePattern) || '*'
+    );
+  },
+
   includeExtensionInModulePath() {
     return !!this.cssModulesOptions.includeExtensionInModulePath;
   },
